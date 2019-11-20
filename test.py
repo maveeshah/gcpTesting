@@ -16,8 +16,8 @@ frame_height = int(cap.get(4))
 
 # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
 out = cv2.VideoWriter('output.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
-
-while(True):
+x = 1
+while(x):
   ret, frame = cap.read()
 
   if ret == True:
@@ -27,7 +27,9 @@ while(True):
 
     # Display the resulting frame
     cv2.imshow('frame',frame)
-
+    x += 1
+    if x>100:
+        x = 0
     # Press Q on keyboard to stop recording
     if cv2.waitKey(1) & 0xFF == ord('q'):
       break
